@@ -12,11 +12,11 @@ variables:
 steps:
 - task: PowerShell@2
   inputs:
-    filePath: '/build/build.ps1'
+    filePath: '$(Build.SourceFolder)/build/build.ps1'
     pwsh: true
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '/build/publish/'
+    SourceFolder: '$(Build.SourceFolder)/build/publish/'
     Contents: '**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
